@@ -1,0 +1,412 @@
+export type Locale = 'fr' | 'en' | 'ar';
+
+export type LocaleConfig = {
+  code: Locale;
+  name: string;
+  nativeName: string;
+  dir: 'ltr' | 'rtl';
+  flag: string;
+};
+
+export const LOCALES: LocaleConfig[] = [
+  { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr', flag: '🇫🇷' },
+  { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', flag: '🇬🇧' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl', flag: '🇲🇦' }
+];
+
+export const DEFAULT_LOCALE: Locale = 'fr';
+
+export const translations = {
+  common: {
+    brand: { fr: 'Happycore', en: 'Happycore', ar: 'هابيكور' },
+    menu: { fr: 'Menu', en: 'Menu', ar: 'القائمة' },
+    close: { fr: 'Fermer', en: 'Close', ar: 'إغلاق' },
+    home: { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' },
+    blog: { fr: 'Blog', en: 'Blog', ar: 'المدونة' },
+    readMore: { fr: 'Lire la suite', en: 'Read more', ar: 'اقرأ المزيد' },
+    backToTop: { fr: 'Retour en haut', en: 'Back to top', ar: 'العودة للأعلى' },
+    location: { fr: 'Marrakech, Maroc', en: 'Marrakech, Morocco', ar: 'مراكش، المغرب' },
+    legal: { fr: 'Mentions Légales', en: 'Legal Notice', ar: 'الإشعار القانوني' },
+    privacy: { fr: 'Confidentialité', en: 'Privacy', ar: 'الخصوصية' },
+    allRightsReserved: { fr: 'Tous droits réservés', en: 'All rights reserved', ar: 'جميع الحقوق محفوظة' },
+    loading: { fr: 'Chargement...', en: 'Loading...', ar: 'جار التحميل...' },
+    pageNotFound: { fr: 'Page introuvable', en: 'Page not found', ar: 'الصفحة غير موجودة' },
+    goHome: { fr: "Retourner à l'accueil", en: 'Return home', ar: 'العودة للرئيسية' },
+    discover: { fr: "Découvrir l'offre", en: 'Discover', ar: 'اكتشف' },
+    contactUs: { fr: 'Nous contacter', en: 'Contact us', ar: 'اتصل بنا' },
+    learnMore: { fr: 'En savoir plus', en: 'Learn more', ar: 'اعرف المزيد' },
+    and: { fr: 'et', en: 'and', ar: 'و' }
+  },
+  nav: {
+    sisterhood: { fr: 'Sisterhood', en: 'Sisterhood', ar: 'الأخوة' },
+    roots: { fr: 'Roots', en: 'Roots', ar: 'الجذور' },
+    executive: { fr: 'Executive', en: 'Executive', ar: 'التنفيذي' }
+  },
+  footer: {
+    experiences: { fr: 'Expériences', en: 'Experiences', ar: 'التجارب' },
+    contactConcierge: { fr: 'Contact & Conciergerie', en: 'Contact & Concierge', ar: 'الاتصال والخدمة' },
+    description: {
+      fr: "Redéfinissez l'art du voyage. Des expériences sur-mesure au cœur du Maroc, conçues pour inspirer, connecter et transformer.",
+      en: 'Redefine the art of travel. Bespoke experiences in the heart of Morocco, designed to inspire, connect and transform.',
+      ar: 'أعد تعريف فن السفر. تجارب مصممة خصيصًا في قلب المغرب، مصممة للإلهام والربط والتحويل.'
+    },
+    email: { fr: 'concierge@happycore.com', en: 'concierge@happycore.com', ar: 'concierge@happycore.com' },
+    whatsapp: { fr: 'WhatsApp concierge', en: 'WhatsApp concierge', ar: 'واتساب الخدمة' }
+  },
+  trustBadges: {
+    title: { fr: 'Engagements & Garanties Happycore', en: 'Happycore Commitments', ar: 'التزامات هابيكور' },
+    safety: { fr: 'Sécurité Auditée', en: 'Audited Safety', ar: 'أمان مدقق' },
+    guides: { fr: 'Guides Certifiés', en: 'Certified Guides', ar: 'مرشدون معتمدون' },
+    support: { fr: 'Assistance 24/7', en: '24/7 Support', ar: 'دعم على مدار الساعة' },
+    excellence: { fr: 'Excellence Client', en: 'Customer Excellence', ar: 'تميز العملاء' }
+  },
+  newsletter: {
+    title: { fr: 'Recevez nos guides privés et offres en avant-première', en: 'Receive our private guides and exclusive offers', ar: 'احصل على أدلتنا الخاصة والعروض الحصرية' },
+    description: {
+      fr: "Conseils de voyage, itinéraires secrets et invitations aux prochaines éditions. Zéro spam, uniquement du contenu à forte valeur.",
+      en: 'Travel tips, secret itineraries and invitations to upcoming editions. Zero spam, only high-value content.',
+      ar: 'نصائح السفر ومسارات سرية ودعوات للطبعات القادمة. صفر رسائل غير مرغوب فيها، فقط محتوى عالي القيمة.'
+    },
+    placeholder: { fr: 'votre@email.com', en: 'your@email.com', ar: 'بريدك@الإلكتروني.كوم' },
+    subscribe: { fr: "S'inscrire", en: 'Subscribe', ar: 'اشترك' },
+    thanks: { fr: "Merci ! Votre inscription est confirmée.", en: 'Thanks! Your subscription is confirmed.', ar: 'شكرًا! تم تأكيد اشتراكك.' },
+    privacyNote: { fr: "En vous inscrivant, vous acceptez notre politique de confidentialité.", en: 'By subscribing, you accept our privacy policy.', ar: 'بالاشتراك، فإنك تقبل سياسة الخصوصية الخاصة بنا.' }
+  },
+  media: {
+    title: { fr: 'Ils parlent de nous', en: 'As featured in', ar: 'كما ظهر في' }
+  },
+  home: {
+    heroEyebrow: { fr: 'Voyages d\'exception · Marrakech', en: 'Exceptional Travel · Marrakech', ar: 'سفر استثنائي · مراكش' },
+    heroTitle: { fr: 'Redéfinissez le Voyage.', en: 'Redefine Travel.', ar: 'أعد تعريف السفر.' },
+    heroSubtitle: {
+      fr: 'Trois expériences sur-mesure au cœur du Maroc, conçues pour inspirer, connecter et transformer.',
+      en: 'Three bespoke experiences in the heart of Morocco, designed to inspire, connect and transform.',
+      ar: 'ثلاث تجارب مصممة خصيصًا في قلب المغرب، للإلهام والربط والتحويل.'
+    },
+    heroCta: { fr: 'Trouver mon expérience', en: 'Find my experience', ar: 'ابحث عن تجربتي' },
+    heroScroll: { fr: 'Explorer', en: 'Explore', ar: 'استكشف' },
+    selectorTitle: { fr: 'Quelle expérience vous correspond ?', en: 'Which experience fits you?', ar: 'أي تجربة تناسبك؟' },
+    selectorSubtitle: {
+      fr: 'Répondez à trois questions. Nous vous guidons vers le voyage parfait.',
+      en: 'Answer three questions. We guide you to the perfect journey.',
+      ar: 'أجب عن ثلاثة أسئلة. نرشدك إلى الرحلة المثالية.'
+    },
+    selectorQuestion1: { fr: 'Quel est votre objectif principal ?', en: 'What is your main goal?', ar: 'ما هو هدفك الرئيسي؟' },
+    selectorQ1A1: { fr: 'Voyager en sécurité, en tant que femme', en: 'Travel safely, as a woman', ar: 'السفر بأمان كامرأة' },
+    selectorQ1A2: { fr: 'Reconnecter avec mon héritage', en: 'Reconnect with my heritage', ar: 'إعادة الاتصال بتراثي' },
+    selectorQ1A3: { fr: 'Réseauter et faire du business', en: 'Network and do business', ar: 'التواصل والأعمال' },
+    selectorQuestion2: { fr: 'Combien de jours avez-vous ?', en: 'How many days do you have?', ar: 'كم يومًا لديك؟' },
+    selectorQ2A1: { fr: '4-5 jours', en: '4-5 days', ar: '4-5 أيام' },
+    selectorQ2A2: { fr: '5-6 jours', en: '5-6 days', ar: '5-6 أيام' },
+    selectorQ2A3: { fr: 'Flexible', en: 'Flexible', ar: 'مرن' },
+    selectorQuestion3: { fr: 'Votre budget par personne ?', en: 'Your budget per person?', ar: 'ميزانيتك لكل شخص؟' },
+    selectorQ3A1: { fr: '1 500€ - 2 500€', en: '1,500€ - 2,500€', ar: '1,500€ - 2,500€' },
+    selectorQ3A2: { fr: '2 000€ - 3 000€', en: '2,000€ - 3,000€', ar: '2,000€ - 3,000€' },
+    selectorQ3A3: { fr: '3 000€+', en: '3,000€+', ar: '3,000€+' },
+    selectorResult: { fr: 'Votre expérience idéale', en: 'Your ideal experience', ar: 'تجربتك المثالية' },
+    selectorRecommendation: { fr: 'Nous vous recommandons', en: 'We recommend', ar: 'نوصي بـ' },
+    selectorReset: { fr: 'Recommencer', en: 'Start over', ar: 'ابدأ من جديد' },
+    selectorFrom: { fr: 'À partir de', en: 'From', ar: 'ابتداءً من' },
+    selectorDuration: { fr: 'durée', en: 'duration', ar: 'المدة' },
+    statsTitle: { fr: 'Pourquoi nous choisir', en: 'Why choose us', ar: 'لماذا تختارنا' },
+    statTravelers: { fr: 'Voyageuses', en: 'Travelers', ar: 'مسافرات' },
+    statRating: { fr: 'Satisfaction', en: 'Satisfaction', ar: 'الرضا' },
+    statYears: { fr: 'Années d\'expertise', en: 'Years of expertise', ar: 'سنوات من الخبرة' },
+    statRepeat: { fr: 'Reviennent', en: 'Return', ar: 'يعودون' },
+    sisterhoodDesc: {
+      fr: 'Séjour sécurisé pour femmes voyageant seules au Maroc. Chauffeuse dédiée, riad audité, sérénité absolue.',
+      en: 'Secure stay for women traveling alone in Morocco. Dedicated driver, audited riad, absolute serenity.',
+      ar: 'إقامة آمنة للنساء المسافرات بمفردهن في المغرب. سائقة مخصصة، رياض مدقق، صفاء تام.'
+    },
+    rootsDesc: {
+      fr: "Voyage Héritage pour la diaspora afro. Culture Gnawa, routes transsahariennes, immersion authentique.",
+      en: 'Heritage travel for the Afro diaspora. Gnawa culture, trans-Saharan routes, authentic immersion.',
+      ar: 'سفر تراثي للجالية الأفريقية. ثقافة كناوة، طرق عبر الصحراء، انغماس أصيل.'
+    },
+    executiveDesc: {
+      fr: "Déplacement stratégique à Marrakech. Golf privé, networking qualifié, conciergerie d'excellence.",
+      en: 'Strategic business trip to Marrakech. Private golf, qualified networking, excellence concierge.',
+      ar: 'رحلة عمل استراتيجية إلى مراكش. غولف خاص، شبكة علاقات مؤهلة، خدمة كونسيرج متميزة.'
+    },
+    blogTitle: {
+      fr: "Des articles pensés pour capter les recherches longues et les vraies intentions de réservation.",
+      en: 'Articles designed to capture long searches and real booking intentions.',
+      ar: 'مقالات مصممة لالتقاط عمليات البحث الطويلة ونوايا الحجز الحقيقية.'
+    },
+    blogSubtitle: {
+      fr: "Chaque article répond à une intention précise: sécurité, héritage culturel ou séjour business premium.",
+      en: 'Each article answers a specific intent: safety, cultural heritage or premium business stay.',
+      ar: 'كل مقال يجيب على نية محددة: السلامة، التراث الثقافي أو إقامة عمل متميزة.'
+    },
+    blogLabel: { fr: 'Blog & guides', en: 'Blog & guides', ar: 'المدونة والأدلة' },
+    allGuides: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' }
+  },
+  sisterhood: {
+    badge: { fr: 'Exclusivité Femme', en: 'Women Exclusive', ar: 'حصري للنساء' },
+    title1: { fr: 'Votre Voyage Solo,', en: 'Your Solo Journey,', ar: 'رحلتك الفردية،' },
+    title2: { fr: 'En Toute Sécurité.', en: 'In Complete Safety.', ar: 'بأمان تام.' },
+    subtitle: {
+      fr: 'Séjour de 5 jours à Marrakech pour femmes voyageant seules. Chauffeuse dédiée, riad audité, groupe intime de 6 personnes maximum. Reprenez le pouvoir sur vos aventures.',
+      en: '5-day stay in Marrakech for women traveling alone. Dedicated driver, audited riad, intimate group of 6 maximum. Take back the power over your adventures.',
+      ar: 'إقامة لمدة 5 أيام في مراكش للنساء المسافرات بمفردهن. سائقة مخصصة، رياض مدقق، مجموعة حميمة من 6 أشخاص كحد أقصى.'
+    },
+    meta: {
+      fr: 'Séjour 5 jours pour femmes voyageant seules au Maroc. Chauffeuse dédiée, riad audité, groupe de 6 max. Réservez sans engagement.',
+      en: '5-day stay for women traveling alone in Morocco. Dedicated driver, audited riad, group of 6 max. Book without commitment.',
+      ar: 'إقامة 5 أيام للنساء المسافرات بمفردهن في المغرب. سائقة مخصصة، رياض مدقق، مجموعة من 6 أشخاص كحد أقصى.'
+    },
+    seoTitle: { fr: 'Voyage Solo Femme Marrakech Sécurisé', en: 'Safe Solo Female Travel Marrakech', ar: 'سفر منفرد آمن للنساء مراكش' },
+    cta: { fr: 'Vérifier les disponibilités', en: 'Check availability', ar: 'تحقق من التوفر' },
+    scarcity: { fr: 'Seulement 6 places par édition', en: 'Only 6 places per edition', ar: '6 أماكن فقط لكل طبعة' },
+    promise: { fr: 'La promesse Happycore Sisterhood', en: 'The Happycore Sisterhood promise', ar: 'وعد هابيكور للأخوة' },
+    promiseSub: {
+      fr: "Nous avons conçu chaque détail pour garantir votre tranquillité d'esprit, de l'arrivée au départ.",
+      en: 'We designed every detail to guarantee your peace of mind, from arrival to departure.',
+      ar: 'صممنا كل التفاصيل لضمان راحة بالك، من الوصول إلى المغادرة.'
+    },
+    safetyTitle: { fr: 'Sécurité Maximale', en: 'Maximum Safety', ar: 'أمان أقصى' },
+    safetyDesc: {
+      fr: 'Chauffeuse privée dédiée pour tous vos déplacements. Nos riads partenaires sont strictement audités.',
+      en: 'Dedicated private driver for all your trips. Our partner riads are strictly audited.',
+      ar: 'سائقة خاصة مخصصة لجميع رحلاتك. يتم تدقيق رياضاتنا الشريكة بدقة.'
+    },
+    groupTitle: { fr: 'Petit Groupe', en: 'Small Group', ar: 'مجموعة صغيرة' },
+    groupDesc: {
+      fr: "Un maximum de 6 femmes par séjour pour privilégier les connexions authentiques et l'ambiance sororale.",
+      en: 'A maximum of 6 women per stay to promote authentic connections and a sisterly atmosphere.',
+      ar: '6 نساء كحد أقصى لكل إقامة لتعزيز الروابط الأصيلة والأجواء الأخوية.'
+    },
+    relaxTitle: { fr: 'Lâcher-prise Total', en: 'Total Letting Go', ar: 'الاسترخاء التام' },
+    relaxDesc: {
+      fr: "Aucune charge mentale. Itinéraire pré-organisé, réservations incluses, assistance 24/7.",
+      en: 'No mental load. Pre-organized itinerary, reservations included, 24/7 assistance.',
+      ar: 'لا عبء ذهني. مسار منظم مسبقًا، حجوزات شاملة، مساعدة على مدار الساعة.'
+    },
+    programLabel: { fr: 'Le Programme', en: 'The Program', ar: 'البرنامج' },
+    programTitle: { fr: 'Ce qui est inclus dans votre séjour', en: 'What is included in your stay', ar: 'ما هو مدرج في إقامتك' },
+    inclusions: [
+      {
+        fr: 'Hébergement 4 nuits dans un Riad traditionnel privatisé au cœur de la Médina.',
+        en: '4-night accommodation in a privatized traditional Riad in the heart of the Medina.',
+        ar: 'إقامة 4 ليالٍ في رياض تقليدي خاص في قلب المدينة القديمة.'
+      },
+      {
+        fr: 'Petits-déjeuners gourmands et dîner de bienvenue traditionnel.',
+        en: 'Gourmet breakfasts and traditional welcome dinner.',
+        ar: 'إفطور ذواقة وعشاء ترحيبي تقليدي.'
+      },
+      {
+        fr: 'Transferts aéroport aller-retour sécurisés avec notre chauffeuse.',
+        en: 'Secure round-trip airport transfers with our driver.',
+        ar: 'انتقالات ذهاب وإياب آمنة من المطار مع سائقتنا.'
+      },
+      {
+        fr: 'Visite guidée de la Médina par une experte locale accréditée.',
+        en: 'Guided tour of the Medina by an accredited local expert.',
+        ar: 'جولة إرشادية في المدينة القديمة مع خبيرة محلية معتمدة.'
+      },
+      {
+        fr: 'Journée bien-être : Hammam traditionnel et massage relaxant.',
+        en: 'Wellness day: Traditional hammam and relaxing massage.',
+        ar: 'يوم صحي: حمام تقليدي وتدليك مريح.'
+      },
+      {
+        fr: 'Atelier cuisine marocaine entre femmes dans la bonne humeur.',
+        en: 'Moroccan cooking workshop among women in a cheerful atmosphere.',
+        ar: 'ورشة طبخ مغربي بين النساء في جو مبهج.'
+      }
+    ],
+    ctaWaitlist: { fr: "Rejoindre la liste d'attente", en: 'Join the waitlist', ar: 'انضم إلى قائمة الانتظار' },
+    noCommitment: { fr: 'Sans engagement de paiement immédiat. Places limitées.', en: 'No immediate payment commitment. Limited places.', ar: 'بدون التزام دفع فوري. أماكن محدودة.' },
+    readGuide: { fr: 'Lire le guide sécurité avant de réserver', en: 'Read the safety guide before booking', ar: 'اقرأ دليل الأمان قبل الحجز' }
+  },
+  roots: {
+    badge: { fr: 'Voyage Héritage Exclusif', en: 'Exclusive Heritage Trip', ar: 'رحلة تراثية حصرية' },
+    title1: { fr: "Reconnectez avec l'Âme", en: 'Reconnect with the Soul', ar: 'أعد الاتصال بالروح' },
+    title2: { fr: "de l'Afrique.", en: 'of Africa.', ar: 'أفريقيا.' },
+    subtitle: {
+      fr: "Un voyage immersif de 6 jours à Marrakech et Essaouira conçu pour la diaspora afro. Explorez la culture Gnawa, marchez sur les anciennes routes transsahariennes et rencontrez des communautés vivantes.",
+      en: 'A 6-day immersive trip in Marrakech and Essaouira designed for the Afro diaspora. Explore Gnawa culture, walk the old trans-Saharan routes and meet living communities.',
+      ar: 'رحلة غامرة لمدة 6 أيام في مراكش والصويرة مصممة للجالية الأفريقية. استكشف ثقافة كناوة، وامشِ على طرق عبر الصحراء القديمة والتقِ بمجتمعات حية.'
+    },
+    meta: {
+      fr: "Voyage pour la diaspora afro au Maroc : culture Gnawa, routes transsahariennes. 6 jours d'immersion à Marrakech et Essaouira. Postulez maintenant.",
+      en: 'Trip for the Afro diaspora in Morocco: Gnawa culture, trans-Saharan routes. 6 days of immersion in Marrakech and Essaouira. Apply now.',
+      ar: 'رحلة للجالية الأفريقية في المغرب: ثقافة كناوة، طرق عبر الصحراء. 6 أيام من الانغماس في مراكش والصويرة. قدم الآن.'
+    },
+    seoTitle: { fr: 'Black Travel Morocco | Voyage Héritage Gnawa', en: 'Black Travel Morocco | Gnawa Heritage Journey', ar: 'سفر السود المغرب | رحلة تراث كناوة' },
+    cta: { fr: "Postuler pour l'expédition", en: 'Apply for the expedition', ar: 'قدم للرحلة الاستكشافية' },
+    scarcity: { fr: 'Forte demande. Prochaine date bientôt complète.', en: 'High demand. Next date filling fast.', ar: 'طلب عالي. التاريخ التالي يمتلئ بسرعة.' },
+    exploration: { fr: 'Une exploration culturelle profonde', en: 'A deep cultural exploration', ar: 'استكشاف ثقافي عميق' },
+    explorationSub: {
+      fr: "Bien plus qu'un séjour touristique, c'est une véritable immersion dans l'histoire afro-marocaine.",
+      en: 'Much more than a tourist stay, it is a true immersion in Afro-Moroccan history.',
+      ar: 'أكثر بكثير من إقامة سياحية، إنها انغماس حقيقي في التاريخ الأفريقي المغربي.'
+    },
+    gnawaTitle: { fr: 'Culture Gnawa', en: 'Gnawa Culture', ar: 'ثقافة كناوة' },
+    gnawaDesc: {
+      fr: 'Plongez dans les rythmes spirituels des confréries Gnawa à Essaouira, descendants des populations subsahariennes.',
+      en: 'Dive into the spiritual rhythms of the Gnawa brotherhoods in Essaouira, descendants of sub-Saharan populations.',
+      ar: 'انغمس في الإيقاعات الروحية لطرق كناوة في الصويرة، أحفاد شعوب جنوب الصحراء.'
+    },
+    routesTitle: { fr: 'Routes Transsahariennes', en: 'Trans-Saharan Routes', ar: 'طرق عبر الصحراء' },
+    routesDesc: {
+      fr: "Découvrez les carrefours historiques qui reliaient le Maroc à l'Afrique de l'Ouest depuis des siècles.",
+      en: 'Discover the historical crossroads that have linked Morocco to West Africa for centuries.',
+      ar: 'اكتشف التقاطعات التاريخية التي ربطت المغرب بغرب أفريقيا لقرون.'
+    },
+    communityTitle: { fr: 'Communauté Vivante', en: 'Living Community', ar: 'مجتمع حي' },
+    communityDesc: {
+      fr: 'Rencontrez des artisans, historiens et artistes locaux pour un échange authentique et réciproque.',
+      en: 'Meet local artisans, historians and artists for an authentic and reciprocal exchange.',
+      ar: 'التقِ بالحرفيين والمؤرخين والفنانين المحليين لتبادل أصيل ومتبادل.'
+    },
+    stayLabel: { fr: 'Le Séjour', en: 'The Stay', ar: 'الإقامة' },
+    stayTitle: { fr: 'Votre itinéraire Héritage', en: 'Your Heritage itinerary', ar: 'مسار تراثك' },
+    stayInclusions: [
+      {
+        fr: '6 jours et 5 nuits entre la vibrante Marrakech et la sereine Essaouira.',
+        en: '6 days and 5 nights between vibrant Marrakech and serene Essaouira.',
+        ar: '6 أيام و5 ليالٍ بين مراكش النابضة والصويرة الهادئة.'
+      },
+      {
+        fr: 'Cérémonie privée de musique Gnawa et rencontre avec un Maâlem.',
+        en: 'Private Gnawa music ceremony and meeting with a Maâlem.',
+        ar: 'حفلة موسيقى كناوة خاصة ولقاء مع المعلم.'
+      },
+      {
+        fr: "Exploration de l'ancienne médina et de son histoire cachée par des locaux.",
+        en: 'Exploration of the old medina and its hidden history by locals.',
+        ar: 'استكشاف المدينة القديمة وتاريخها المخفي من قبل السكان المحليين.'
+      },
+      {
+        fr: "Hébergement dans des lieux chargés d'histoire, de charme et d'âme.",
+        en: 'Accommodation in places steeped in history, charm and soul.',
+        ar: 'إقامة في أماكن مشبعة بالتاريخ والسحر والروح.'
+      },
+      {
+        fr: "Dîners thématiques autour de l'héritage culinaire afro-marocain.",
+        en: 'Themed dinners around Afro-Moroccan culinary heritage.',
+        ar: 'عشاءات مواضيعية حول التراث الطهوي الأفريقي المغربي.'
+      },
+      {
+        fr: 'Transport privé et guide culturel expert francophone/anglophone.',
+        en: 'Private transport and expert French/English-speaking cultural guide.',
+        ar: 'نقل خاص ومرشد ثقافي خبير يتحدث الفرنسية/الإنجليزية.'
+      }
+    ],
+    ctaCall: { fr: 'Réserver mon appel découverte', en: 'Book my discovery call', ar: 'احجز مكالمة الاكتشاف' },
+    scarcitySmall: { fr: "Places extrêmement limitées pour privilégier l'expérience de groupe.", en: 'Extremely limited places to prioritize group experience.', ar: 'أماكن محدودة للغاية لإعطاء الأولوية للتجربة الجماعية.' },
+    readArticle: { fr: "Lire l'article sur le voyage afro au Maroc", en: 'Read the article on Afro travel to Morocco', ar: 'اقرأ المقال عن السفر الأفريقي إلى المغرب' }
+  },
+  executive: {
+    badge: { fr: "Conciergerie d'Excellence", en: 'Excellence Concierge', ar: 'خدمة كونسيرج متميزة' },
+    title1: { fr: 'Le Déplacement', en: 'The Strategic', ar: 'الرحلة' },
+    title2: { fr: 'Stratégique.', en: 'Trip.', ar: 'الاستراتيجية.' },
+    subtitle: {
+      fr: "Marrakech comme vous ne l'avez jamais vécue. Golf privé, networking qualifié, dîners gastronomiques et conciergerie VIP pour décideurs exigeants.",
+      en: 'Marrakech as you have never experienced it. Private golf, qualified networking, gourmet dinners and VIP concierge for demanding decision-makers.',
+      ar: 'مراكش كما لم تختبرها من قبل. غولف خاص، شبكة علاقات مؤهلة، عشاءات ذواقة وخدمة كونسيرج VIP لصناع القرار المتطلبين.'
+    },
+    meta: {
+      fr: 'Déplacement stratégique et conciergerie à Marrakech : golf privé, networking qualifié, dîners. Discrétion absolue pour décideurs. Demandez un appel.',
+      en: 'Strategic trip and concierge in Marrakech: private golf, qualified networking, dinners. Absolute discretion for decision-makers. Request a call.',
+      ar: 'رحلة استراتيجية وخدمة كونسيرج في مراكش: غولف خاص، شبكة علاقات مؤهلة، عشاءات. تكتم مطلق لصناع القرار. اطلب مكالمة.'
+    },
+    seoTitle: { fr: 'Business Trip Marrakech Golf', en: 'Marrakech Business Trip Golf', ar: 'رحلة عمل مراكش غولف' },
+    cta: { fr: 'Réserver un appel confidentiel', en: 'Book a confidential call', ar: 'احجز مكالمة سرية' },
+    discretion: { fr: 'Discrétion absolue garantie.', en: 'Absolute discretion guaranteed.', ar: 'التكتم المطلق مضمون.' },
+    standardTitle: { fr: "Un standard d'exigence unique", en: 'A unique standard of excellence', ar: 'معيار فريد للتميز' },
+    standardSub: {
+      fr: "Chaque détail est orchestré pour optimiser votre temps et maximiser l'impact de votre séjour.",
+      en: 'Every detail is orchestrated to optimize your time and maximize the impact of your stay.',
+      ar: 'يتم تنسيق كل التفاصيل لتحسين وقتك وتعظيم تأثير إقامتك.'
+    },
+    conciergeTitle: { fr: 'Conciergerie Dédiée', en: 'Dedicated Concierge', ar: 'كونسيرج مخصص' },
+    conciergeDesc: {
+      fr: 'Logistique ultra-fluide, transferts en berline de luxe, accès coupe-file et réservations dans les établissements les plus exclusifs.',
+      en: 'Ultra-fluid logistics, luxury sedan transfers, skip-the-line access and reservations in the most exclusive establishments.',
+      ar: 'لوجستيات فائقة السلاسة، انتقالات بسيارة فاخرة، وصول سريع وحجوزات في أرقى المؤسسات.'
+    },
+    sportTitle: { fr: 'Sport & Business', en: 'Sport & Business', ar: 'الرياضة والأعمال' },
+    sportDesc: {
+      fr: 'Accès prioritaire aux parcours de golf les plus prestigieux et aux courts de tennis privés.',
+      en: 'Priority access to the most prestigious golf courses and private tennis courts.',
+      ar: 'وصول ذو أولوية لأرقى ملاعب الغولف وملاعب التنس الخاصة.'
+    },
+    networkTitle: { fr: 'Networking Qualifié', en: 'Qualified Networking', ar: 'شبكة علاقات مؤهلة' },
+    networkDesc: {
+      fr: "Rencontres orchestrées avec des acteurs clés locaux, dîners d'affaires très discrets et événements de réseautage sur-mesure.",
+      en: 'Meetings orchestrated with key local players, very discreet business dinners and tailor-made networking events.',
+      ar: 'اجتماعات منسقة مع لاعبين محليين رئيسيين، عشاءات عمل سرية للغاية وفعاليات تواصل مصممة خصيصًا.'
+    },
+    methodology: { fr: 'Méthodologie', en: 'Methodology', ar: 'المنهجية' },
+    methodTitle: { fr: "L'Excellence comme standard", en: 'Excellence as standard', ar: 'التميز كمعيار' },
+    methodDesc: {
+      fr: "Notre offre Executive est pensée pour les leaders qui ne font aucun compromis entre l'efficacité professionnelle et le raffinement personnel.",
+      en: 'Our Executive offer is designed for leaders who make no compromise between professional efficiency and personal refinement.',
+      ar: 'عرضنا التنفيذي مصمم للقادة الذين لا يقدمون أي حل وسط بين الكفاءة المهنية والصقل الشخصي.'
+    },
+    steps: [
+      {
+        title: { fr: 'Diagnostic Personnalisé', en: 'Personalized Diagnosis', ar: 'تشخيص شخصي' },
+        desc: {
+          fr: "Lors d'un premier appel, nous définissons ensemble vos objectifs business, votre emploi du temps et vos préférences.",
+          en: 'During a first call, we define together your business objectives, your schedule and your preferences.',
+          ar: 'خلال المكالمة الأولى، نحدد معًا أهدافك التجارية وجدولك وتفضيلاتك.'
+        }
+      },
+      {
+        title: { fr: 'Conception Sur-Mesure', en: 'Bespoke Design', ar: 'تصميم مخصص' },
+        desc: {
+          fr: "Création d'un itinéraire exclusif incluant green fees, tables étoilées et salles de réunions privées.",
+          en: 'Creation of an exclusive itinerary including green fees, starred tables and private meeting rooms.',
+          ar: 'إنشاء مسار حصري يشمل رسوم الملعب وطاولات مميزة وغرف اجتماعات خاصة.'
+        }
+      },
+      {
+        title: { fr: 'Exécution Parfaite', en: 'Perfect Execution', ar: 'تنفيذ مثالي' },
+        desc: {
+          fr: "Une présence sur place discrète mais redoutablement efficace pour anticiper et garantir le bon déroulement.",
+          en: 'A discreet but formidable presence on site to anticipate and guarantee the smooth running.',
+          ar: 'وجود سري ولكن فعال بشكل هائل في الموقع لتوقع وضمان سير العمل بسلاسة.'
+        }
+      }
+    ],
+    ctaPlan: { fr: 'Initier la planification', en: 'Initiate planning', ar: 'ابدأ التخطيط' },
+    readGuide: { fr: 'Lire le guide business trip Marrakech', en: 'Read the Marrakech business trip guide', ar: 'اقرأ دليل رحلة عمل مراكش' }
+  },
+  blog: {
+    title: {
+      fr: 'Des articles pensés pour capter les recherches longues et les vraies intentions de réservation.',
+      en: 'Articles designed to capture long searches and real booking intentions.',
+      ar: 'مقالات مصممة لالتقاط عمليات البحث الطويلة ونوايا الحجز الحقيقية.'
+    },
+    description: {
+      fr: "Nos contenus répondent aux questions précises que vos futurs voyageurs se posent avant d'acheter.",
+      en: 'Our content answers the specific questions your future travelers ask themselves before buying.',
+      ar: 'محتوانا يجيب على الأسئلة المحددة التي يطرحها مسافروك المستقبليون قبل الشراء.'
+    },
+    editorial: { fr: 'Guides éditoriaux', en: 'Editorial guides', ar: 'أدلة تحريرية' },
+    keyword: { fr: 'Mot-cle cible', en: 'Target keyword', ar: 'الكلمة المستهدفة' },
+    notFound: { fr: 'Article introuvable', en: 'Article not found', ar: 'المقال غير موجود' },
+    notFoundDesc: { fr: 'Ce guide n\'existe plus.', en: 'This guide no longer exists.', ar: 'هذا الدليل لم يعد موجودًا.' },
+    backToBlog: { fr: 'Retour au blog', en: 'Back to blog', ar: 'العودة إلى المدونة' },
+    faq: { fr: 'Questions fréquentes', en: 'Frequently asked questions', ar: 'الأسئلة الشائعة' },
+    nextStep: { fr: 'Prochaine etape', en: 'Next step', ar: 'الخطوة التالية' },
+    goToExperience: { fr: "Passez de la lecture a l'experience.", en: 'Go from reading to experience.', ar: 'انتقل من القراءة إلى التجربة.' },
+    relatedArticles: { fr: 'Articles lies', en: 'Related articles', ar: 'مقالات ذات صلة' },
+    allArticles: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' }
+  },
+  reserve: { fr: 'Réserver', en: 'Reserve', ar: 'احجز' },
+  stickyCTA: {
+    sisterhood: { fr: 'Vérifier les disponibilités', en: 'Check availability', ar: 'تحقق من التوفر' },
+    roots: { fr: 'Postuler pour Roots', en: 'Apply for Roots', ar: 'قدم للجذور' },
+    executive: { fr: 'Appel concierge', en: 'Concierge call', ar: 'مكالمة الكونسيرج' }
+  },
+  whatsapp: {
+    label: { fr: 'WhatsApp concierge', en: 'WhatsApp concierge', ar: 'واتساب الخدمة' }
+  }
+};
+
+export type TranslationKey = typeof translations;

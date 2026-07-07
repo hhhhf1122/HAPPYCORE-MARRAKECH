@@ -1,0 +1,50 @@
+# Happycore - Voyages Stratégiques & Culturels au Maroc
+
+> Site web : https://happycore.com
+> Contact : contact@happycore.com
+> WhatsApp : +212 600-000000
+
+Happycore est une agence de voyages spécialisée dans les séjours sur-mesure au Maroc : Sisterhood (voyages entre femmes), Roots (héritage afro-marocain) et Executive (business trips de luxe).
+
+## Pages principales
+
+- Accueil : https://happycore.com/
+- Sisterhood : https://happycore.com/sisterhood
+- Roots : https://happycore.com/roots
+- Executive : https://happycore.com/executive
+- Blog : https://happycore.com/blog
+- Réservation : https://happycore.com/reservation
+
+## Derniers articles du blog
+
+- **Culture Gnawa a Essaouira: guide simple pour une immersion vraie** (2026-05-05)
+  - URL : https://happycore.com/blog/culture-gnawa-essaouira-guide
+  - Résumé : Comprendre les bases de la culture Gnawa avant de partir change completement la qualite de l'experience sur place.
+  - Mots-clés : culture Gnawa Essaouira
+
+- **Quel riad choisir a Marrakech quand on voyage seule ?** (2026-05-04)
+  - URL : https://happycore.com/blog/riad-marrakech-femme-seule
+  - Résumé : Un guide simple pour comprendre ce qui differencie un riad photogenique d'un riad vraiment rassurant pour une voyageuse seule.
+  - Mots-clés : riad Marrakech femme seule
+
+- **Business trip Marrakech golf: organiser un sejour qui fait gagner du temps** (2026-05-03)
+  - URL : https://happycore.com/blog/business-trip-marrakech-golf-conciergerie
+  - Résumé : Le bon sejour business a Marrakech doit etre fluide, discret et utile. Voici comment structurer une experience vraiment premium.
+  - Mots-clés : business trip Marrakech golf
+
+- **Voyage solo femme Marrakech sécurisé: le guide pour partir sereine** (2026-05-02)
+  - URL : https://happycore.com/blog/voyage-solo-femme-marrakech-securise
+  - Résumé : Les points essentiels pour choisir un séjour vraiment rassurant à Marrakech, sans sacrifier le plaisir, le confort ou la liberté.
+  - Mots-clés : voyage solo femme Marrakech sécurisé
+
+- **Voyage afro Maroc: pourquoi Essaouira parle autant a la diaspora** (2026-05-01)
+  - URL : https://happycore.com/blog/voyage-afro-maroc-diaspora
+  - Résumé : Une lecture culturelle et emotionnelle pour comprendre pourquoi Essaouira et Marrakech attirent autant les voyageurs de la diaspora afro.
+  - Mots-clés : voyage afro Maroc
+
+## À propos
+
+Happycore conçoit des voyages authentiques et sécurisés au Maroc, en privilégiant les rencontres humaines et les expériences immersives. Notre équipe est basée à Marrakech et Essaouira.
+
+---
+Ce fichier est destiné aux modèles de langage pour une meilleure compréhension de notre contenu.
