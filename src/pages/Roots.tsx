@@ -12,33 +12,10 @@ export default function Roots() {
   const { t } = useI18n();
   const FORM_URL = "/reservation";
 
-  const faqItems = [
-    {
-      question: 'Ce voyage est-il réservé aux personnes d\'origine africaine ?',
-      answer:
-        'Roots est conçu pour la diaspora afro, mais nous accueillons toute personne authentiquement intéressée par l\'histoire et la culture Gnawa. L\'essentiel est l\'intention d\'apprentissage et de reconnexion.'
-    },
-    {
-      question: 'Faut-il parler français ou arabe ?',
-      answer:
-        'Nos guides sont bilingues français/anglais. Vous pouvez participer dans l\'une ou l\'autre langue. Certains moments sont traduits en temps réel.'
-    },
-    {
-      question: 'Quelle est la différence avec un voyage culturel classique ?',
-      answer:
-        'Un voyage classique visite. Roots rencontre, écoute, échange. Nous privilégions les connexions humaines aux visites panoramiques. L\'immersion est profonde, pas superficielle.'
-    },
-    {
-      question: 'Combien de personnes par voyage ?',
-      answer:
-        'Maximum 8 personnes par édition pour préserver l\'intimité des rencontres et la qualité des échanges. Nous refusons souvent des candidatures pour maintenir ce format.'
-    },
-    {
-      question: 'Quel est le prix du séjour Roots ?',
-      answer:
-        'À partir de 2 290€ par personne pour 6 jours/5 nuits (hébergement, transferts, activités culturelles, rencontres, certains repas). Postulez pour recevoir le dossier complet.'
-    }
-  ];
+  const faqItems = Array.from({ length: 5 }, (_, i) => ({
+    question: t(`faq.roots.${i}.question`),
+    answer: t(`faq.roots.${i}.answer`)
+  }));
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -100,12 +77,13 @@ export default function Roots() {
                 to={FORM_URL}
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-emerald-950 bg-[#E6C687] rounded-full hover:bg-white hover:scale-105 transition-all shadow-xl focus:ring-4 focus:ring-emerald-500/50"
+                aria-label={t('roots.cta')}
               >
-                Postuler pour l'expédition <ArrowRight className="ml-2 h-5 w-5" />
+                {t('roots.cta')} <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <p className="text-emerald-200 text-sm flex items-center bg-emerald-950/50 px-4 py-2 rounded-full backdrop-blur-sm">
                 <Flame className="w-4 h-4 mr-2 text-[#E6C687]" />
-                Forte demande. Prochaine date bientôt complète.
+                {t('roots.scarcity')}
               </p>
             </motion.div>
           </div>
@@ -118,9 +96,9 @@ export default function Roots() {
       <section className="py-24 bg-[#FAF9F6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Une exploration culturelle profonde</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">{t('roots.exploration')}</h2>
             <p className="text-lg text-stone-600">
-              Bien plus qu'un séjour touristique, c'est une véritable immersion dans l'histoire afro-marocaine. Un voyage de reconnexion.
+              {t('roots.explorationSub')}
             </p>
           </div>
 
@@ -129,27 +107,27 @@ export default function Roots() {
               <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                 <Music className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-stone-900">Culture Gnawa</h3>
+              <h3 className="text-xl font-bold mb-4 text-stone-900">{t('roots.gnawaTitle')}</h3>
               <p className="text-stone-600 leading-relaxed">
-                Plongez dans les rythmes spirituels et l'histoire des confréries Gnawa à Essaouira, fiers descendants des populations subsahariennes.
+                {t('roots.gnawaDesc')}
               </p>
             </div>
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-stone-100 group">
               <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                 <Map className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-stone-900">Routes Transsahariennes</h3>
+              <h3 className="text-xl font-bold mb-4 text-stone-900">{t('roots.routesTitle')}</h3>
               <p className="text-stone-600 leading-relaxed">
-                Découvrez les carrefours historiques du commerce et de la culture qui reliaient le Maroc à l'Afrique de l'Ouest depuis des siècles.
+                {t('roots.routesDesc')}
               </p>
             </div>
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-stone-100 group">
               <div className="w-16 h-16 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-700 mb-8 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
                 <Sparkles className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-stone-900">Communauté Vivante</h3>
+              <h3 className="text-xl font-bold mb-4 text-stone-900">{t('roots.communityTitle')}</h3>
               <p className="text-stone-600 leading-relaxed">
-                Rencontrez des artisans, historiens et artistes locaux pour un échange authentique et réciproque, loin des clichés touristiques.
+                {t('roots.communityDesc')}
               </p>
             </div>
           </div>
@@ -160,20 +138,13 @@ export default function Roots() {
       <section className="py-24 bg-stone-900 text-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-16 items-center">
           <div className="lg:w-1/2">
-            <span className="text-[#E6C687] font-bold uppercase tracking-wider text-sm mb-2 block">Le Séjour</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">Votre itinéraire Héritage</h2>
+            <span className="text-[#E6C687] font-bold uppercase tracking-wider text-sm mb-2 block">{t('roots.stayLabel')}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">{t('roots.stayTitle')}</h2>
             <ul className="space-y-6">
-              {[
-                "6 jours et 5 nuits entre la vibrante Marrakech et la sereine Essaouira.",
-                "Cérémonie privée de musique Gnawa et rencontre avec un Maâlem (Maître).",
-                "Exploration de l'ancienne médina et de son histoire cachée par des locaux.",
-                "Hébergement dans des lieux chargés d'histoire, de charme et d'âme.",
-                "Dîners thématiques autour de l'héritage culinaire afro-marocain.",
-                "Transport privé et guide culturel expert francophone/anglophone."
-              ].map((item, idx) => (
+              {Array.from({ length: 6 }, (_, idx) => (
                 <li key={idx} className="flex items-start bg-stone-800/50 p-4 rounded-2xl border border-stone-700/50">
                   <CheckCircle className="h-6 w-6 text-[#E6C687] mr-4 flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-stone-300">{item}</span>
+                  <span className="text-lg text-stone-300">{t(`roots.stayInclusions.${idx}`)}</span>
                 </li>
               ))}
             </ul>
@@ -182,13 +153,14 @@ export default function Roots() {
                 to={FORM_URL}
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-emerald-950 bg-[#E6C687] rounded-full hover:bg-white transition-all shadow-xl w-full sm:w-auto"
+                aria-label={t('roots.ctaCall')}
               >
-                Réserver mon appel découverte
+                {t('roots.ctaCall')}
               </Link>
-              <p className="text-stone-400 text-sm mt-4">Places extrêmement limitées pour privilégier l'expérience de groupe.</p>
+              <p className="text-stone-400 text-sm mt-4">{t('roots.scarcitySmall')}</p>
               <div className="mt-4">
                 <Link to="/blog/voyage-afro-maroc-diaspora" className="text-sm font-medium text-[#E6C687] underline underline-offset-4">
-                  Lire l'article sur le voyage afro au Maroc
+                  {t('roots.readArticle')}
                 </Link>
               </div>
             </div>

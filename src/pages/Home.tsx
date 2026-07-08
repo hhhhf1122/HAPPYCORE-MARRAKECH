@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowDown, Users, Globe, Briefcase } from 'lucide-react';
-import { blogPosts } from '../data/blogPosts';
+import { getLocalizedPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
 import MediaMentions from '../components/MediaMentions';
 import Newsletter from '../components/Newsletter';
@@ -12,15 +12,15 @@ import { Helmet } from 'react-helmet-async';
 import { buildOrganizationSchema, buildLocalBusinessSchema } from '../lib/schemas';
 
 export default function Home() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const offers = [
     {
       key: 'sisterhood',
       path: '/sisterhood',
       icon: Users,
-      duration: '5 jours',
-      price: '1 890€',
+      durationKey: 'dur5j',
+      price: '1 323€',
       image: 'https://images.pexels.com/photos/10573397/pexels-photo-10573397.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
       classes: {
         iconBg: 'bg-rose-100',
@@ -33,8 +33,8 @@ export default function Home() {
       key: 'roots',
       path: '/roots',
       icon: Globe,
-      duration: '6 jours',
-      price: '2 290€',
+      durationKey: 'dur6j',
+      price: '1 603€',
       image: 'https://images.pexels.com/photos/37442103/pexels-photo-37442103.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
       classes: {
         iconBg: 'bg-emerald-100',
@@ -47,8 +47,8 @@ export default function Home() {
       key: 'executive',
       path: '/executive',
       icon: Briefcase,
-      duration: 'Flexible',
-      price: '3 500€',
+      durationKey: 'durFlex',
+      price: '2 450€',
       image: 'https://images.pexels.com/photos/15072154/pexels-photo-15072154.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
       classes: {
         iconBg: 'bg-blue-100',
@@ -135,7 +135,7 @@ export default function Home() {
                     />
                   ))}
                 </div>
-                <span>480+ {t('home.statTravelers').toLowerCase()}</span>
+                <span>{t('home.heroTravelers')} {t('home.statTravelers').toLowerCase()}</span>
               </div>
             </motion.div>
           </div>
@@ -175,10 +175,10 @@ export default function Home() {
             className="text-center mb-14 md:mb-20 max-w-3xl mx-auto"
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-500 mb-4">
-              Nos trois univers
+              {t('home.sectionSubtitle')}
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-stone-950 leading-tight">
-              Une expérience pour chaque voyageur
+              {t('home.sectionTitle')}
             </h2>
           </motion.div>
 
@@ -218,13 +218,13 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap items-center gap-6 mb-8 text-sm text-stone-500">
                       <div>
-                        <span className="block text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">À partir de</span>
+                        <span className="block text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">{t('home.fromLabel')}</span>
                         <span className="text-lg font-semibold text-stone-950">{offer.price}</span>
                       </div>
                       <div className="w-px h-10 bg-stone-200" />
                       <div>
-                        <span className="block text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">Durée</span>
-                        <span className="text-lg font-semibold text-stone-950">{offer.duration}</span>
+                        <span className="block text-[10px] uppercase tracking-[0.2em] text-stone-400 mb-1">{t('home.durationLabel')}</span>
+                        <span className="text-lg font-semibold text-stone-950">{t(`home.${offer.durationKey}` as any)}</span>
                       </div>
                     </div>
                     <Link
@@ -260,7 +260,7 @@ export default function Home() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {blogPosts.slice(0, 3).map((post, idx) => (
+            {getLocalizedPosts(locale).slice(0, 3).map((post, idx) => (
               <motion.div
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}

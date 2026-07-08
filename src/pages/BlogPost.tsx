@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
-import { blogPosts, getBlogPost } from '../data/blogPosts';
+import { getLocalizedPost, getLocalizedPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
 import TableOfContents from '../components/TableOfContents';
+import { useI18n } from '../i18n/I18nProvider';
 
-function buildSchema(post: NonNullable<ReturnType<typeof getBlogPost>>) {
+function buildSchema(post: { title: string; metaDescription: string; heroImage: string; publishedAt: string; updatedAt: string; keyword: string; category: string }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -34,7 +35,7 @@ function buildSchema(post: NonNullable<ReturnType<typeof getBlogPost>>) {
   };
 }
 
-function buildFaqSchema(post: NonNullable<ReturnType<typeof getBlogPost>>) {
+function buildFaqSchema(post: { faqs: { question: string; answer: string }[] }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -49,12 +50,12 @@ function buildFaqSchema(post: NonNullable<ReturnType<typeof getBlogPost>>) {
   };
 }
 
-function buildBreadcrumbSchema(post: NonNullable<ReturnType<typeof getBlogPost>>) {
+function buildBreadcrumbSchema(post: { title: string; slug: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://happycore.com/" },
+      { "@type": "ListItem", "position": 1, "name": "Happycore", "item": "https://happycore.com/" },
       { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://happycore.com/blog" },
       { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://happycore.com/blog/${post.slug}` }
     ]
@@ -63,7 +64,8 @@ function buildBreadcrumbSchema(post: NonNullable<ReturnType<typeof getBlogPost>>
 
 export default function BlogPost() {
   const { slug } = useParams();
-  const post = slug ? getBlogPost(slug) : undefined;
+  const { t, locale } = useI18n();
+  const post = slug ? getLocalizedPost(slug, locale) : undefined;
   const [readingProgress, setReadingProgress] = useState(0);
 
   useEffect(() => {
@@ -81,20 +83,20 @@ export default function BlogPost() {
   if (!post) {
     return (
       <div className="mx-auto flex min-h-[60vh] max-w-3xl flex-col justify-center px-6 py-24 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-stone-400">Article introuvable</p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-950">Ce guide n'existe plus.</h1>
-        <p className="mt-4 text-stone-600">Retournez au blog pour choisir un autre article.</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-stone-400">{t('blog.notFound')}</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-stone-950">{t('blog.notFoundDesc')}</h1>
+        <p className="mt-4 text-stone-600">{t('blog.goBack')}</p>
         <Link
           to="/blog"
           className="mx-auto mt-8 inline-flex rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-stone-800"
         >
-          Retour au blog
+          {t('blog.backToBlog')}
         </Link>
       </div>
     );
   }
 
-  const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const relatedPosts = getLocalizedPosts(locale).filter((item) => item.slug !== post.slug).slice(0, 3);
 
   return (
     <article className="bg-stone-50 text-stone-900">
@@ -129,7 +131,7 @@ export default function BlogPost() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="fixed bottom-20 right-5 z-[60] bg-stone-900 text-white w-12 h-12 rounded-full shadow-lg hover:bg-stone-800 transition-all flex items-center justify-center"
-          aria-label="Retour en haut"
+          aria-label={t('common.backToTop')}
         >
           <span className="text-xl">↑</span>
         </button>
@@ -143,9 +145,9 @@ export default function BlogPost() {
 
         <div className="relative mx-auto max-w-4xl px-6 py-28 text-white md:px-12">
           <nav className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-300/70 mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Accueil</Link>
+            <Link to="/" className="hover:text-white transition-colors">{t('common.home')}</Link>
             <span className="mx-2">/</span>
-            <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
+            <Link to="/blog" className="hover:text-white transition-colors">{t('common.blog')}</Link>
             <span className="mx-2">/</span>
             <span className="text-white">{post.category}</span>
           </nav>
@@ -165,7 +167,7 @@ export default function BlogPost() {
       />
       <div className="mx-auto max-w-4xl px-6 py-20 md:px-12">
         <div className="mb-14 flex items-center justify-between border-b border-stone-200 pb-6 text-sm text-stone-500">
-          <span>Mot-cle cible: {post.keyword}</span>
+          <span>{t('blog.keyword')}: {post.keyword}</span>
           <span>{new Date(post.publishedAt).toLocaleDateString('fr-FR')}</span>
         </div>
 
@@ -194,7 +196,7 @@ export default function BlogPost() {
         </div>
 
         <section className="mt-16 rounded-[2rem] bg-white p-8 shadow-[0_16px_50px_rgba(15,23,42,0.06)]">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-400">Questions frequentes</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-400">{t('blog.faq')}</p>
           <div className="mt-6 space-y-6">
             {post.faqs.map((faq) => (
               <div key={faq.question} className="border-b border-stone-100 pb-5 last:border-b-0 last:pb-0">
@@ -207,8 +209,8 @@ export default function BlogPost() {
 
         <div className="mt-16 flex flex-col gap-4 rounded-[2rem] border border-stone-200 bg-stone-950 px-8 py-8 text-white md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-stone-300">Prochaine etape</p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight">Passez de la lecture a l'experience.</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-stone-300">{t('blog.nextStep')}</p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight">{t('blog.goToExperience')}</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
             <Link
@@ -223,14 +225,14 @@ export default function BlogPost() {
                 to={`/blog/${relatedPosts[0].slug}`}
                 className="text-sm text-stone-400 underline hover:text-white transition-colors"
               >
-                Lire un autre guide : {relatedPosts[0].title}
+                {t('blog.readAnother')} {relatedPosts[0].title}
               </Link>
             )}
           </div>
         </div>
 
         <section className="mt-16">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-400">Articles lies</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-400">{t('blog.relatedArticles')}</p>
           <div className="mt-6 grid gap-6 md:grid-cols-3">
             {relatedPosts.map((related) => (
               <Link
@@ -253,10 +255,10 @@ export default function BlogPost() {
             HE
           </div>
           <div>
-              <p className="text-sm font-semibold text-stone-950">Happycore Editorial</p>
-              <p className="text-sm text-stone-500">Équipe de rédaction</p>
+              <p className="text-sm font-semibold text-stone-950">{t('blog.authorName')}</p>
+              <p className="text-sm text-stone-500">{t('blog.authorRole')}</p>
               <p className="mt-1 text-xs leading-5 text-stone-400">
-                Nos guides sont rédigés par l'équipe Happycore, spécialiste des voyages stratégiques et culturels au Maroc.
+                {t('blog.authorDesc')}
               </p>
             </div>
           </div>

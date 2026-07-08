@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { useI18n } from '../i18n/I18nProvider';
+
 
 type FAQItem = {
   question: string;
@@ -14,6 +16,7 @@ type Props = {
 
 export default function FAQ({ items, accentColor = 'stone' }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const {t} = useI18n();
 
   const toggle = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
@@ -39,7 +42,7 @@ export default function FAQ({ items, accentColor = 'stone' }: Props) {
       </Helmet>
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-stone-900">
-          Questions fréquentes
+          {t('blog.faq')}
         </h2>
         <div className="space-y-4">
           {items.map((item, idx) => (

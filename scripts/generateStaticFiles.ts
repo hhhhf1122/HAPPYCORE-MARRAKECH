@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { blogPosts } from "../src/data/blogPosts";
+import { getLocalizedPosts, blogPosts } from "../src/data/blogPosts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.resolve(__dirname, "../public");
@@ -21,7 +21,7 @@ function escapeXml(unsafe: string) {
 }
 
 function generateLlmsTxt() {
-  const sorted = [...blogPosts].sort(
+  const sorted = [...getLocalizedPosts("fr")].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
@@ -66,7 +66,7 @@ Ce fichier est destiné aux modèles de langage pour une meilleure compréhensio
 }
 
 function generateFullLlmsTxt() {
-  const sorted = [...blogPosts].sort(
+  const sorted = [...getLocalizedPosts("fr")].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
@@ -134,7 +134,7 @@ Ce fichier contient l'intégralité du contenu éditorial pour une compréhensio
 }
 
 function generateRss() {
-  const sorted = [...blogPosts].sort(
+  const sorted = [...getLocalizedPosts("fr")].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );
 
@@ -167,6 +167,51 @@ ${items}
 </rss>`;
 }
 
+type SitemapEntry = {
+  loc: string;
+  lastmod: string;
+  changefreq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority: string;
+};
+
+function generateSitemap(): string {
+  const today = new Date().toISOString().split('T')[0];
+
+  const staticPages: SitemapEntry[] = [
+    { loc: `${SITE_URL}/`, lastmod: today, changefreq: 'weekly', priority: '1.0' },
+    { loc: `${SITE_URL}/sisterhood`, lastmod: today, changefreq: 'monthly', priority: '0.9' },
+    { loc: `${SITE_URL}/roots`, lastmod: today, changefreq: 'monthly', priority: '0.9' },
+    { loc: `${SITE_URL}/executive`, lastmod: today, changefreq: 'monthly', priority: '0.9' },
+    { loc: `${SITE_URL}/blog`, lastmod: today, changefreq: 'weekly', priority: '0.8' },
+    { loc: `${SITE_URL}/reservation`, lastmod: today, changefreq: 'monthly', priority: '0.7' },
+  ];
+
+  const blogEntries: SitemapEntry[] = blogPosts.map((post) => ({
+    loc: `${SITE_URL}/blog/${escapeXml(post.slug)}`,
+    lastmod: post.updatedAt || today,
+    changefreq: 'monthly' as const,
+    priority: '0.7',
+  }));
+
+  const allEntries = [...staticPages, ...blogEntries];
+
+  const items = allEntries
+    .map(
+      (entry) => `  <url>
+    <loc>${escapeXml(entry.loc)}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${entry.changefreq}</changefreq>
+    <priority>${entry.priority}</priority>
+  </url>`,
+    )
+    .join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${items}
+</urlset>`;
+}
+
 function main() {
   if (!fs.existsSync(PUBLIC_DIR)) {
     fs.mkdirSync(PUBLIC_DIR, { recursive: true });
@@ -175,8 +220,9 @@ function main() {
   fs.writeFileSync(path.join(PUBLIC_DIR, "llms.txt"), generateLlmsTxt());
   fs.writeFileSync(path.join(PUBLIC_DIR, "full-llms.txt"), generateFullLlmsTxt());
   fs.writeFileSync(path.join(PUBLIC_DIR, "rss.xml"), generateRss());
+  fs.writeFileSync(path.join(PUBLIC_DIR, "sitemap.xml"), generateSitemap());
 
-  console.log("✅ llms.txt, full-llms.txt et rss.xml générés dans public/");
+  console.log("✅ Fichiers statiques générés dans public/");
 }
 
 main();

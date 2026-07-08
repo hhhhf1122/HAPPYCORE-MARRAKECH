@@ -70,7 +70,7 @@ export default function JourneySelector() {
     sisterhood: {
       title: 'Sisterhood',
       path: '/sisterhood',
-      price: '1 890€',
+      price: '1 323€',
       duration: '5 jours',
       durationEn: '5 days',
       gradientClass: 'bg-gradient-to-br from-rose-500 to-rose-700',
@@ -79,7 +79,7 @@ export default function JourneySelector() {
     roots: {
       title: 'Roots',
       path: '/roots',
-      price: '2 290€',
+      price: '1 603€',
       duration: '6 jours',
       durationEn: '6 days',
       gradientClass: 'bg-gradient-to-br from-emerald-700 to-emerald-900',
@@ -88,7 +88,7 @@ export default function JourneySelector() {
     executive: {
       title: 'Executive',
       path: '/executive',
-      price: '3 500€',
+      price: '2 450€',
       duration: 'Flexible',
       durationEn: 'Flexible',
       gradientClass: 'bg-gradient-to-br from-blue-700 to-blue-900',

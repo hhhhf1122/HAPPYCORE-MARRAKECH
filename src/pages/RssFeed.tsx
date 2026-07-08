@@ -1,8 +1,8 @@
 // src/pages/RssFeed.tsx
-import { blogPosts } from '../data/blogPosts';
+import { getLocalizedPosts } from '../data/blogPosts';
 
 export default function RssFeed() {
-  const sortedPosts = [...blogPosts].sort(
+  const sortedPosts = [...getLocalizedPosts('fr')].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 

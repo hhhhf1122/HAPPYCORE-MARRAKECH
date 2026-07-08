@@ -1,18 +1,20 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { blogPosts } from '../data/blogPosts';
+import { getLocalizedPosts } from '../data/blogPosts';
 import SEO from '../components/SEO';
+import { useI18n } from '../i18n/I18nProvider';
 
 export default function BlogIndex() {
-  const sortedPosts = [...blogPosts].sort(
+  const { t, locale } = useI18n();
+  const sortedPosts = getLocalizedPosts(locale).sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
   );
 
   return (
     <div className="bg-stone-50 text-stone-900">
       <SEO
-        title="Blog | Guides Marrakech, Roots et Executive"
-        description="Guides pratiques et inspirations de voyage pour Marrakech, Essaouira, la diaspora afro et les sejours business premium au Maroc."
+        title={`${t('common.blog')} | ${t('common.brand')}`}
+        description={t('blog.description')}
         canonical="/blog"
         keywords="blog voyage maroc, guide marrakech, conseil voyage, sisterhood blog, roots blog, executive blog"
       />
@@ -26,7 +28,7 @@ export default function BlogIndex() {
               animate={{ opacity: 1, y: 0 }}
               className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-500"
             >
-              Guides editoriaux
+              {t('blog.editorial')}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 14 }}
@@ -34,7 +36,7 @@ export default function BlogIndex() {
               transition={{ delay: 0.08 }}
               className="mt-5 text-4xl md:text-6xl font-semibold tracking-tight text-stone-950"
             >
-              Des articles pensés pour capter les recherches longues et les vraies intentions de reservation.
+              {t('blog.title')}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -42,7 +44,7 @@ export default function BlogIndex() {
               transition={{ delay: 0.14 }}
               className="mt-6 max-w-2xl text-lg leading-8 text-stone-600"
             >
-              Nos contenus repondent aux questions precises que vos futurs voyageurs se posent avant d\'acheter. C\'est la meilleure maniere de creer du trafic qualifie et de renforcer la confiance.
+              {t('blog.description')}
             </motion.p>
           </div>
         </div>
@@ -77,7 +79,7 @@ export default function BlogIndex() {
                     <h2 className="text-2xl font-semibold tracking-tight text-stone-950">{post.title}</h2>
                     <p className="text-sm leading-6 text-stone-600">{post.excerpt}</p>
                     <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-stone-500">
-                      Mot-cle cible: {post.keyword}
+                      {t('blog.keyword')}: {post.keyword}
                     </p>
                   </div>
                 </Link>

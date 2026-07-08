@@ -139,7 +139,15 @@ export const translations = {
       ar: 'كل مقال يجيب على نية محددة: السلامة، التراث الثقافي أو إقامة عمل متميزة.'
     },
     blogLabel: { fr: 'Blog & guides', en: 'Blog & guides', ar: 'المدونة والأدلة' },
-    allGuides: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' }
+    allGuides: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' },
+    sectionSubtitle: { fr: 'Nos trois univers', en: 'Our three universes', ar: 'عوالمنا الثلاثة' },
+    sectionTitle: { fr: 'Une expérience pour chaque voyageur', en: 'An experience for every traveler', ar: 'تجربة لكل مسافر' },
+    fromLabel: { fr: 'À partir de', en: 'From', ar: 'ابتداءً من' },
+    durationLabel: { fr: 'Durée', en: 'Duration', ar: 'المدة' },
+    heroTravelers: { fr: '480+', en: '480+', ar: '480+' },
+    dur5j: { fr: '5 jours', en: '5 days', ar: '5 أيام' },
+    dur6j: { fr: '6 jours', en: '6 days', ar: '6 أيام' },
+    durFlex: { fr: 'Flexible', en: 'Flexible', ar: 'مرن' }
   },
   sisterhood: {
     badge: { fr: 'Exclusivité Femme', en: 'Women Exclusive', ar: 'حصري للنساء' },
@@ -396,7 +404,12 @@ export const translations = {
     nextStep: { fr: 'Prochaine etape', en: 'Next step', ar: 'الخطوة التالية' },
     goToExperience: { fr: "Passez de la lecture a l'experience.", en: 'Go from reading to experience.', ar: 'انتقل من القراءة إلى التجربة.' },
     relatedArticles: { fr: 'Articles lies', en: 'Related articles', ar: 'مقالات ذات صلة' },
-    allArticles: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' }
+    allArticles: { fr: 'Voir tous les guides', en: 'See all guides', ar: 'شاهد جميع الأدلة' },
+    goBack: { fr: 'Retournez au blog pour choisir un autre article.', en: 'Go back to the blog to choose another article.', ar: 'عد إلى المدونة لاختيار مقال آخر.' },
+    readAnother: { fr: 'Lire un autre guide :', en: 'Read another guide:', ar: 'اقرأ دليل آخر:' },
+    authorName: { fr: 'Happycore Editorial', en: 'Happycore Editorial', ar: 'هابي كور التحرير' },
+    authorRole: { fr: 'Équipe de rédaction', en: 'Editorial Team', ar: 'فريق التحرير' },
+    authorDesc: { fr: 'Nos guides sont rédigés par l\'équipe Happycore, spécialiste des voyages stratégiques et culturels au Maroc.', en: 'Our guides are written by the Happycore team, specialists in strategic and cultural travel in Morocco.', ar: 'أدلتنا من إعداد فريق هابي كور، المتخصصين في السفر الاستراتيجي والثقافي في المغرب.' }
   },
   reserve: { fr: 'Réserver', en: 'Reserve', ar: 'احجز' },
   stickyCTA: {
@@ -406,6 +419,194 @@ export const translations = {
   },
   whatsapp: {
     label: { fr: 'WhatsApp concierge', en: 'WhatsApp concierge', ar: 'واتساب الخدمة' }
+  },
+  faq: {
+    sisterhood: [
+      {
+        question: {
+          fr: 'Pourquoi choisir un voyage en groupe plutôt que solo complet ?',
+          en: 'Why choose a group trip rather than going fully solo?',
+          ar: 'لماذا تختار رحلة جماعية بدلاً من السفر الفردي بالكامل؟'
+        },
+        answer: {
+          fr: 'Notre format combine la liberté du solo (vous voyagez seule) avec la sécurité du groupe (6 personnes max, logistique privée). Vous gardez votre indépendance tout en bénéficiant d\'une infrastructure sécurisée.',
+          en: 'Our format combines the freedom of solo (you travel alone) with the security of a group (6 people max, private logistics). You keep your independence while benefiting from a secure infrastructure.',
+          ar: 'يجمع تنسيقنا بين حرية السفر الفردي (تسافرين بمفردك) وأمان المجموعة (6 أشخاص كحد أقصى، لوجستيات خاصة). تحافظين على استقلاليتك مع الاستفادة من بنية تحتية آمنة.'
+        }
+      },
+      {
+        question: {
+          fr: 'Quelle est la meilleure période pour venir à Marrakech ?',
+          en: 'What is the best time to come to Marrakech?',
+          ar: 'ما هو أفضل وقت لزيارة مراكش؟'
+        },
+        answer: {
+          fr: 'Mars-mai et septembre-novembre offrent les températures les plus agréables (20-28°C). Évitez juillet-août si vous craignez la chaleur (35-45°C). Nos éditions sont calibrées pour les meilleures saisons.',
+          en: 'March-May and September-November offer the most pleasant temperatures (20-28°C). Avoid July-August if you fear the heat (35-45°C). Our editions are calibrated for the best seasons.',
+          ar: 'مارس-مايو وسبتمبر-نوفمبر يقدمون أكثر درجات الحرارة متعة (20-28 درجة مئوية). تجنبي يوليو-أغسطس إذا كنت تخشين الحرارة (35-45 درجة مئوية). طبعاتنا معايرة لأفضل المواسم.'
+        }
+      },
+      {
+        question: {
+          fr: 'Combien coûte le séjour Sisterhood ?',
+          en: 'How much does the Sisterhood stay cost?',
+          ar: 'كم تكلف إقامة الأخوة؟'
+        },
+        answer: {
+          fr: 'À partir de 1 323€ par personne pour 5 jours/4 nuits tout inclus (hébergement, transferts, activités, certains repas). Contactez-nous pour les dates exactes et disponibilités.',
+          en: 'From €1,323 per person for 5 days/4 nights all inclusive (accommodation, transfers, activities, some meals). Contact us for exact dates and availability.',
+          ar: 'من 1,323 يورو للشخص الواحد لمدة 5 أيام/4 ليالٍ شاملة كل شيء (الإقامة، الانتقالات، الأنشطة، بعض الوجبات). اتصل بنا للحصول على التواريخ الدقيقة والتوافر.'
+        }
+      },
+      {
+        question: {
+          fr: 'Puis-je venir si je n\'ai jamais voyagé seule ?',
+          en: 'Can I come if I have never traveled alone?',
+          ar: 'هل يمكنني القدوم إذا لم أسافر بمفردي من قبل؟'
+        },
+        answer: {
+          fr: 'Absolument. Sisterhood est conçu pour les premières expériences solo sécurisées. 40% de nos participantes n\'avaient jamais voyagé seules avant.',
+          en: 'Absolutely. Sisterhood is designed for first-time safe solo experiences. 40% of our participants had never traveled alone before.',
+          ar: 'بالتأكيد. تم تصميم الأخوة لتجارب السفر الفردي الآمنة لأول مرة. 40٪ من مشاركاتنا لم يسافرن بمفردهن من قبل.'
+        }
+      },
+      {
+        question: {
+          fr: 'Que se passe-t-il en cas d\'imprévu ou d\'urgence ?',
+          en: 'What happens in case of an unforeseen event or emergency?',
+          ar: 'ماذا يحدث في حالة حدث غير متوقع أو طارئ؟'
+        },
+        answer: {
+          fr: 'Vous avez un contact humain disponible 24/7. Notre équipe sur place gère tout : médical, logistique, changement de programme. Vous n\'êtes jamais livrée à vous-même.',
+          en: 'You have a human contact available 24/7. Our on-site team handles everything: medical, logistics, program changes. You are never left to fend for yourself.',
+          ar: 'لديك جهة اتصال بشرية متاحة على مدار الساعة. فريقنا في الموقع يدير كل شيء: طبي، لوجستي، تغيير البرنامج. أنتِ لستِ متروكة أبدًا لنفسك.'
+        }
+      }
+    ],
+    roots: [
+      {
+        question: {
+          fr: 'Ce voyage est-il réservé aux personnes d\'origine africaine ?',
+          en: 'Is this trip reserved for people of African descent?',
+          ar: 'هل هذه الرحلة مخصصة للأشخاص من أصل أفريقي؟'
+        },
+        answer: {
+          fr: 'Roots est conçu pour la diaspora afro, mais nous accueillons toute personne authentiquement intéressée par l\'histoire et la culture Gnawa. L\'essentiel est l\'intention d\'apprentissage et de reconnexion.',
+          en: 'Roots is designed for the Afro diaspora, but we welcome anyone genuinely interested in Gnawa history and culture. The key is the intention of learning and reconnection.',
+          ar: 'تم تصميم الجذور للجالية الأفريقية، لكننا نرحب بأي شخص مهتم حقًا بتاريخ وثقافة كناوة. الأساس هو نية التعلم وإعادة الاتصال.'
+        }
+      },
+      {
+        question: {
+          fr: 'Faut-il parler français ou arabe ?',
+          en: 'Do I need to speak French or Arabic?',
+          ar: 'هل يجب أن أتحدث الفرنسية أو العربية؟'
+        },
+        answer: {
+          fr: 'Nos guides sont bilingues français/anglais. Vous pouvez participer dans l\'une ou l\'autre langue. Certains moments sont traduits en temps réel.',
+          en: 'Our guides are bilingual French/English. You can participate in either language. Some moments are translated in real time.',
+          ar: 'مرشدونا ثنائيو اللغة الفرنسية/الإنجليزية. يمكنك المشاركة بأي من اللغتين. بعض اللحظات تُترجم في الوقت الفعلي.'
+        }
+      },
+      {
+        question: {
+          fr: 'Quelle est la différence avec un voyage culturel classique ?',
+          en: 'What is the difference with a classic cultural trip?',
+          ar: 'ما الفرق عن الرحلة الثقافية التقليدية؟'
+        },
+        answer: {
+          fr: 'Un voyage classique visite. Roots rencontre, écoute, échange. Nous privilégions les connexions humaines aux visites panoramiques. L\'immersion est profonde, pas superficielle.',
+          en: 'A classic trip visits. Roots meets, listens, exchanges. We prioritize human connections over sightseeing. The immersion is deep, not superficial.',
+          ar: 'الرحلة التقليدية تزور. الجذور تلتقي وتستمع وتتبادل. نحن نعطي الأولوية للتواصل البشري على المشاهدة. الانغماس عميق وليس سطحيًا.'
+        }
+      },
+      {
+        question: {
+          fr: 'Combien de personnes par voyage ?',
+          en: 'How many people per trip?',
+          ar: 'كم عدد الأشخاص في كل رحلة؟'
+        },
+        answer: {
+          fr: 'Maximum 8 personnes par édition pour préserver l\'intimité des rencontres et la qualité des échanges. Nous refusons souvent des candidatures pour maintenir ce format.',
+          en: 'Maximum 8 people per edition to preserve the intimacy of encounters and the quality of exchanges. We often decline applications to maintain this format.',
+          ar: '8 أشخاص كحد أقصى لكل طبعة للحفاظ على خصوصية اللقاءات وجودة التبادلات. غالبًا ما نرفض الطلبات للحفاظ على هذا التنسيق.'
+        }
+      },
+      {
+        question: {
+          fr: 'Quel est le prix du séjour Roots ?',
+          en: 'What is the price of the Roots stay?',
+          ar: 'ما هو سعر إقامة الجذور؟'
+        },
+        answer: {
+          fr: 'À partir de 1 603€ par personne pour 6 jours/5 nuits (hébergement, transferts, activités culturelles, rencontres, certains repas). Postulez pour recevoir le dossier complet.',
+          en: 'From €1,603 per person for 6 days/5 nights (accommodation, transfers, cultural activities, meetings, some meals). Apply to receive the full dossier.',
+          ar: 'من 1,603 يورو للشخص الواحد لمدة 6 أيام/5 ليالٍ (إقامة، انتقالات، أنشطة ثقافية، لقاءات، بعض الوجبات). تقدم بطلبك للحصول على الملف الكامل.'
+        }
+      }
+    ],
+    executive: [
+      {
+        question: {
+          fr: 'Quel est le délai minimum pour organiser un séjour Executive ?',
+          en: 'What is the minimum lead time to organize an Executive stay?',
+          ar: 'ما هي المهلة الدنيا لتنظيم إقامة تنفيذية؟'
+        },
+        answer: {
+          fr: 'Idéalement 3 semaines pour un programme complet. En urgence (7 jours), nous pouvons mobiliser nos réseaux pour un séjour de qualité, avec un accès légèrement plus limité aux lieux les plus exclusifs.',
+          en: 'Ideally 3 weeks for a complete program. In an emergency (7 days), we can mobilize our networks for a quality stay, with slightly more limited access to the most exclusive places.',
+          ar: 'من الناحية المثالية 3 أسابيع لبرنامج كامل. في حالات الطوارئ (7 أيام)، يمكننا تعبئة شبكاتنا لإقامة عالية الجودة، مع وصول محدود قليلاً إلى الأماكن الأكثر حصرية.'
+        }
+      },
+      {
+        question: {
+          fr: 'Le service est-il adapté aux équipes ou seulement aux individus ?',
+          en: 'Is the service suitable for teams or only individuals?',
+          ar: 'هل الخدمة مناسبة للفرق أم للأفراد فقط؟'
+        },
+        answer: {
+          fr: 'Nous gérons aussi bien les séjours individuels que les groupes de 2 à 12 dirigeants. Pour les équipes, nous adaptons la logistique (salles privées, activités de groupe, dîners d\'affaires).',
+          en: 'We handle both individual stays and groups of 2 to 12 executives. For teams, we adapt logistics (private rooms, group activities, business dinners).',
+          ar: 'نتعامل مع كل من الإقامات الفردية والمجموعات من 2 إلى 12 مديرًا تنفيذيًا. للفرق، نكيف الخدمات اللوجستية (غرف خاصة، أنشطة جماعية، عشاء عمل).'
+        }
+      },
+      {
+        question: {
+          fr: 'Comment garantissez-vous la discrétion ?',
+          en: 'How do you guarantee discretion?',
+          ar: 'كيف تضمنون السرية؟'
+        },
+        answer: {
+          fr: 'NDA signé par toute l\'équipe, pas de photos sans autorisation, transferts en véhicules discrets, hébergements avec entrées privées. Notre clientèle inclut des personnalités publiques.',
+          en: 'NDA signed by the entire team, no photos without authorization, discreet vehicle transfers, accommodations with private entrances. Our clientele includes public figures.',
+          ar: 'توقيع اتفاقية عدم إفشاء من قبل الفريق بأكمله، لا صور بدون إذن، انتقالات بمركبات سرية، إقامات بمداخل خاصة. عملاؤنا يشملون شخصيات عامة.'
+        }
+      },
+      {
+        question: {
+          fr: 'Quel est le budget à prévoir ?',
+          en: 'What budget should I plan for?',
+          ar: 'ما هي الميزانية التي يجب أن أخطط لها؟'
+        },
+        answer: {
+          fr: 'À partir de 2 450€ par personne pour 3 jours/2 nuits (hébergement premium, conciergerie dédiée, accès golf/tennis, 2 dîners gastronomiques). Les programmes sur mesure démarrent à 8 000€.',
+          en: 'From €2,450 per person for 3 days/2 nights (premium accommodation, dedicated concierge, golf/tennis access, 2 gourmet dinners). Custom programs start at €8,000.',
+          ar: 'من 2,450 يورو للشخص الواحد لمدة 3 أيام/ليلتين (إقامة متميزة، خدمة كونسيرج مخصصة، وصول للغولف/التنس، عشاءين من المأكولات الذواقة). البرامج المخصصة تبدأ من 8,000 يورو.'
+        }
+      },
+      {
+        question: {
+          fr: 'Pouvez-vous organiser des rencontres business ciblées ?',
+          en: 'Can you organize targeted business meetings?',
+          ar: 'هل يمكنكم تنظيم لقاءات عمل مستهدفة؟'
+        },
+        answer: {
+          fr: 'Oui. Nous avons un réseau d\'entrepreneurs, investisseurs et décideurs locaux. Selon vos objectifs (investissement, partenariat, veille), nous orchestrons des rencontres qualifiées.',
+          en: 'Yes. We have a network of local entrepreneurs, investors and decision-makers. According to your objectives (investment, partnership, monitoring), we orchestrate qualified meetings.',
+          ar: 'نعم. لدينا شبكة من رواد الأعمال والمستثمرين وصناع القرار المحليين. وفقًا لأهدافك (استثمار، شراكة، مراقبة)، ننظم لقاءات مؤهلة.'
+        }
+      }
+    ]
   }
 };
 
