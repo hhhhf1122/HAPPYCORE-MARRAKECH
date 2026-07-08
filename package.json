@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prebuild": "tsx scripts/generateStaticFiles.ts"
+    "prebuild": "tsx scripts/generateStaticFiles.ts",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -29,6 +30,7 @@
     "tsx": "^4.23.0",
     "typescript": "5.9.3",
     "vite": "7.3.2",
-    "vite-plugin-singlefile": "2.3.0"
+    "vite-plugin-singlefile": "2.3.0",
+    "wrangler": "^4.108.0"
   }
 }

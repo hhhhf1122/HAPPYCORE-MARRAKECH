@@ -1,4 +1,10 @@
 {
-  "name": "happycoremarrkech",
-  "compatibility_date": "2026-07-08"
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "happycore",
+  "compatibility_date": "2026-07-08",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  }
 }
