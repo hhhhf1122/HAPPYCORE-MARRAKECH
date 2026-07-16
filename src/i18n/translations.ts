@@ -420,6 +420,54 @@ export const translations = {
   whatsapp: {
     label: { fr: 'WhatsApp concierge', en: 'WhatsApp concierge', ar: 'واتساب الخدمة' }
   },
+  reservation: {
+    seoTitle: { fr: 'Réserver votre expérience | Happycore', en: 'Book your experience | Happycore', ar: 'احجز تجربتك | هابيكور' },
+    seoDesc: { fr: 'Dites-nous en plus sur votre voyage idéal au Maroc et recevez une proposition sur-mesure.', en: 'Tell us more about your ideal trip to Morocco and receive a tailor-made proposal.', ar: 'أخبرنا المزيد عن رحلتك المثالية في المغرب واحصل على عرض مخصص.' },
+    startYourJourney: { fr: 'Commencez votre voyage', en: 'Start your journey', ar: 'ابدأ رحلتك' },
+    title: { fr: 'Parlez-nous de votre voyage idéal au Maroc', en: 'Tell us about your ideal trip to Morocco', ar: 'أخبرنا عن رحلتك المثالية في المغرب' },
+    subtitle: { fr: 'Quelques questions pour mieux comprendre vos envies. Notre équipe vous recontacte ensuite avec une proposition sur-mesure.', en: 'A few questions to better understand your wishes. Our team will then get back to you with a tailor-made proposal.', ar: 'بضعة أسئلة لفهم رغباتك بشكل أفضل. سيتصل بك فريقنا بعد ذلك بعرض مخصص.' },
+    contactInfo: { fr: 'Vos coordonnées', en: 'Your contact details', ar: 'بيانات الاتصال الخاصة بك' },
+    fullName: { fr: 'Nom complet', en: 'Full name', ar: 'الاسم الكامل' },
+    email: { fr: 'Email', en: 'Email', ar: 'البريد الإلكتروني' },
+    phone: { fr: 'Téléphone (optionnel)', en: 'Phone (optional)', ar: 'الهاتف (اختياري)' },
+    groupSize: { fr: 'Nombre de voyageurs', en: 'Number of travelers', ar: 'عدد المسافرين' },
+    experienceTitle: { fr: 'Quelle expérience vous attire ?', en: 'Which experience attracts you?', ar: 'أي تجربة تجذبك؟' },
+    activitiesTitle: { fr: 'Activités qui vous intéressent', en: 'Activities that interest you', ar: 'الأنشطة التي تهمك' },
+    guideTitle: { fr: 'Quelle importance accordez-vous à un guide certifié ?', en: 'How important is a certified guide to you?', ar: 'ما أهمية الدليل المعتمد لك؟' },
+    practicalDetails: { fr: 'Détails pratiques', en: 'Practical details', ar: 'التفاصيل العملية' },
+    travelPeriod: { fr: 'Période envisagée', en: 'Travel period', ar: 'فترة السفر' },
+    travelPeriodPlaceholder: { fr: 'Ex : Mars 2027', en: 'Ex: March 2027', ar: 'مثال: مارس 2027' },
+    messageTitle: { fr: 'Un mot pour nous ? (optionnel)', en: 'A word for us? (optional)', ar: 'كلمة لنا؟ (اختياري)' },
+    messagePlaceholder: { fr: 'Besoins spécifiques, contraintes, envies particulières...', en: 'Specific needs, constraints, particular wishes...', ar: 'احتياجات محددة، قيود، رغبات خاصة...' },
+    submitting: { fr: 'Envoi en cours...', en: 'Sending...', ar: 'جار الإرسال...' },
+    submit: { fr: 'Envoyer ma demande', en: 'Send my request', ar: 'أرسل طلبي' },
+    error: { fr: "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous écrire directement.", en: 'An error occurred while sending. Please try again or write to us directly.', ar: 'حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى أو الكتابة إلينا مباشرة.' },
+    thankYou: { fr: 'Merci !', en: 'Thank you!', ar: 'شكرًا!' },
+    successMessage: { fr: 'Votre demande a bien été reçue. Notre équipe va étudier vos préférences et vous contactera très prochainement par email.', en: 'Your request has been received. Our team will review your preferences and contact you very soon by email.', ar: 'تم استلام طلبك. سيقوم فريقنا بمراجعة تفضيلاتك والتواصل معك قريبًا عبر البريد الإلكتروني.' },
+    backToHome: { fr: "Retourner à l'accueil", en: 'Return home', ar: 'العودة للرئيسية' },
+    experiences: {
+      sisterhood: { fr: 'Happycore Sisterhood', en: 'Happycore Sisterhood', ar: 'هابيكور الأخوة' },
+      roots: { fr: 'Happycore Roots', en: 'Happycore Roots', ar: 'هابيكور الجذور' },
+      executive: { fr: 'Happycore Executive', en: 'Happycore Executive', ar: 'هابيكور التنفيذي' },
+      dontKnow: { fr: 'Je ne sais pas encore', en: "I don't know yet", ar: 'لا أعرف بعد' }
+    },
+    activities: {
+      desert: { fr: 'Désert & randonnée', en: 'Desert & hiking', ar: 'الصحراء والمشي' },
+      hammam: { fr: 'Hammam & bien-être', en: 'Hammam & wellness', ar: 'الحمام والعافية' },
+      gastronomy: { fr: 'Gastronomie locale', en: 'Local gastronomy', ar: 'المأكولات المحلية' },
+      culture: { fr: 'Culture & histoire', en: 'Culture & history', ar: 'الثقافة والتاريخ' },
+      golf: { fr: 'Golf', en: 'Golf', ar: 'غولف' },
+      shopping: { fr: 'Artisanat & shopping', en: 'Crafts & shopping', ar: 'الحرف والتسوق' },
+      music: { fr: 'Musique & cérémonies (Gnawa...)', en: 'Music & ceremonies (Gnawa...)', ar: 'الموسيقى والاحتفالات (كناوة...)' },
+      sport: { fr: 'Sport & aventure', en: 'Sports & adventure', ar: 'الرياض والمغامرة' }
+    },
+    guideImportance: {
+      essential: { fr: 'Essentiel', en: 'Essential', ar: 'أساسي' },
+      important: { fr: 'Important', en: 'Important', ar: 'مهم' },
+      notImportant: { fr: 'Peu important', en: 'Not very important', ar: 'غير مهم' },
+      dontKnow: { fr: 'Je ne sais pas', en: "I don't know", ar: 'لا أعرف' }
+    }
+  },
   faq: {
     sisterhood: [
       {

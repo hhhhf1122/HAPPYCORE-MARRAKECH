@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 import { submitToSheet } from '../lib/submitToSheet';
+import { useI18n } from '../i18n/I18nProvider';
 
 const EXPERIENCES = [
-  'Happycore Sisterhood',
-  'Happycore Roots',
-  'Happycore Executive',
-  'Je ne sais pas encore',
+  'sisterhood',
+  'roots',
+  'executive',
+  'dontKnow',
 ];
 
 const ACTIVITIES = [
-  'Désert & randonnée',
-  'Hammam & bien-être',
-  'Gastronomie locale',
-  'Culture & histoire',
-  'Golf',
-  'Artisanat & shopping',
-  'Musique & cérémonies (Gnawa...)',
-  'Sport & aventure',
+  'desert',
+  'hammam',
+  'gastronomy',
+  'culture',
+  'golf',
+  'shopping',
+  'music',
+  'sport',
 ];
 
-
-const GUIDE_IMPORTANCE = ['Essentiel', 'Important', 'Peu important', 'Je ne sais pas'];
+const GUIDE_IMPORTANCE = ['essential', 'important', 'notImportant', 'dontKnow'];
 
 
 type FormState = {
@@ -51,6 +51,7 @@ const initialState: FormState = {
 };
 
 export default function ReservationPage() {
+  const { t } = useI18n();
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -81,16 +82,15 @@ export default function ReservationPage() {
       <div className="min-h-screen bg-stone-50 flex items-center pt-24">
         <div className="max-w-xl mx-auto px-6 text-center py-24">
           <div className="w-16 h-px bg-stone-300 mx-auto mb-8" />
-          <h1 className="text-4xl font-bold text-stone-900 mb-6">Merci !</h1>
+          <h1 className="text-4xl font-bold text-stone-900 mb-6">{t('reservation.thankYou')}</h1>
           <p className="text-lg text-stone-600 leading-relaxed mb-10">
-            Votre demande a bien été reçue. Notre équipe va étudier vos préférences et vous
-            contactera très prochainement par email.
+            {t('reservation.successMessage')}
           </p>
           <Link
             to="/"
             className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-stone-900 rounded-full hover:bg-stone-800 transition-colors"
           >
-            Retourner à l'accueil
+            {t('reservation.backToHome')}
           </Link>
         </div>
       </div>
@@ -100,8 +100,8 @@ export default function ReservationPage() {
   return (
     <div className="bg-stone-50">
       <SEO
-        title="Réserver votre expérience | Happycore"
-        description="Dites-nous en plus sur votre voyage idéal au Maroc et recevez une proposition sur-mesure."
+        title={t('reservation.seoTitle')}
+        description={t('reservation.seoDesc')}
         canonical="/reservation"
       />
 
@@ -113,7 +113,7 @@ export default function ReservationPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-[11px] font-semibold uppercase tracking-[0.24em] text-stone-500"
           >
-            Commencez votre voyage
+            {t('reservation.startYourJourney')}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
@@ -121,7 +121,7 @@ export default function ReservationPage() {
             transition={{ delay: 0.08 }}
             className="mt-5 text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-stone-950"
           >
-            Parlez-nous de votre voyage idéal au Maroc
+            {t('reservation.title')}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -129,8 +129,7 @@ export default function ReservationPage() {
             transition={{ delay: 0.14 }}
             className="mt-6 text-lg leading-8 text-stone-600"
           >
-            Quelques questions pour mieux comprendre vos envies. Notre équipe vous recontacte
-            ensuite avec une proposition sur-mesure.
+            {t('reservation.subtitle')}
           </motion.p>
         </div>
       </section>
@@ -145,28 +144,28 @@ export default function ReservationPage() {
             {/* Contact */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Vos coordonnées
+                {t('reservation.contactInfo')}
               </legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <Field
-                  label="Nom complet"
+                  label={t('reservation.fullName')}
                   value={form.fullName}
                   onChange={(v) => setForm({ ...form, fullName: v })}
                 />
                 <Field
-                  label="Email"
+                  label={t('reservation.email')}
                   type="email"
                   required
                   value={form.email}
                   onChange={(v) => setForm({ ...form, email: v })}
                 />
                 <Field
-                  label="Téléphone (optionnel)"
+                  label={t('reservation.phone')}
                   value={form.phone}
                   onChange={(v) => setForm({ ...form, phone: v })}
                 />
                 <Field
-                  label="Nombre de voyageurs"
+                  label={t('reservation.groupSize')}
                   type="number"
                   value={form.groupSize}
                   onChange={(v) => setForm({ ...form, groupSize: v })}
@@ -177,14 +176,14 @@ export default function ReservationPage() {
             {/* Experience */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Quelle expérience vous attire ?
+                {t('reservation.experienceTitle')}
               </legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {EXPERIENCES.map((opt) => (
                   <RadioCard
                     key={opt}
                     name="experienceInterest"
-                    label={opt}
+                    label={t(`reservation.experiences.${opt}`)}
                     checked={form.experienceInterest === opt}
                     onChange={() => setForm({ ...form, experienceInterest: opt })}
                   />
@@ -195,13 +194,13 @@ export default function ReservationPage() {
             {/* Activities */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Activités qui vous intéressent
+                {t('reservation.activitiesTitle')}
               </legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {ACTIVITIES.map((opt) => (
                   <CheckboxCard
                     key={opt}
-                    label={opt}
+                    label={t(`reservation.activities.${opt}`)}
                     checked={form.activities.includes(opt)}
                     onChange={() => toggleArrayValue('activities', opt)}
                   />
@@ -213,14 +212,14 @@ export default function ReservationPage() {
             {/* Guide importance */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Quelle importance accordez-vous à un guide certifié ?
+                {t('reservation.guideTitle')}
               </legend>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {GUIDE_IMPORTANCE.map((opt) => (
                   <RadioCard
                     key={opt}
                     name="guideImportance"
-                    label={opt}
+                    label={t(`reservation.guideImportance.${opt}`)}
                     checked={form.guideImportance === opt}
                     onChange={() => setForm({ ...form, guideImportance: opt })}
                   />
@@ -231,12 +230,12 @@ export default function ReservationPage() {
             {/* Practical */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Détails pratiques
+                {t('reservation.practicalDetails')}
               </legend>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
                 <Field
-                  label="Période envisagée"
-                  placeholder="Ex : Mars 2027"
+                  label={t('reservation.travelPeriod')}
+                  placeholder={t('reservation.travelPeriodPlaceholder')}
                   value={form.travelPeriod}
                   onChange={(v) => setForm({ ...form, travelPeriod: v })}
                 />
@@ -246,21 +245,20 @@ export default function ReservationPage() {
             {/* Message */}
             <fieldset>
               <legend className="text-[11px] font-semibold uppercase tracking-[0.2em] text-stone-400 mb-5">
-                Un mot pour nous ? (optionnel)
+                {t('reservation.messageTitle')}
               </legend>
               <textarea
                 rows={4}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="Besoins spécifiques, contraintes, envies particulières..."
+                placeholder={t('reservation.messagePlaceholder')}
                 className="w-full px-4 py-3 border border-stone-200 rounded-xl text-stone-900 placeholder:text-stone-400 focus:border-stone-900 focus:outline-none transition-colors resize-none"
               />
             </fieldset>
 
             {status === 'error' && (
               <p className="text-sm text-rose-600">
-                Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous écrire
-                directement.
+                {t('reservation.error')}
               </p>
             )}
 
@@ -269,7 +267,7 @@ export default function ReservationPage() {
               disabled={status === 'submitting' || !form.email}
               className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-stone-900 rounded-full hover:bg-stone-800 transition-colors w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {status === 'submitting' ? 'Envoi en cours...' : 'Envoyer ma demande'}
+              {status === 'submitting' ? t('reservation.submitting') : t('reservation.submit')}
             </button>
           </form>
         </div>
